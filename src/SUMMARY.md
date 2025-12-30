@@ -9,6 +9,11 @@
 # Infrastructure Monitoring
 
 - [Rudder Exporter](rudder-exporter/README.md)
+- [HAProxy Exporter](haproxy-exporter/README.md)
+
+# Security Monitoring
+
+- [OpenBao/Vault Exporter](openba-exporter/README.md)
 
 # DNS Monitoring
 
