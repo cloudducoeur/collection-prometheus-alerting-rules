@@ -29,6 +29,10 @@
 
 - [Oxidized Exporter](oxidized-exporter/README.md)
 
+# Messaging Monitoring
+
+- [Mosquitto Exporter](mosquitto-exporter/README.md)
+
 # Help us
 
 - [Contributing](CONTRIBUTING.md)
