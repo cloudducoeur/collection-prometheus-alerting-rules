@@ -1,0 +1,10 @@
+[book]
+authors = ["Restos du Coeur"]
+language = "fr"
+multilingual = false
+src = "src"
+title = "Prometheus Alerting Rules Collection"
+
+[output.html]
+additional-css = ["theme/custom.css"]
+git-repository-url = "https://github.com/cloudducoeur/collection-prometheus-alerting-rules"
