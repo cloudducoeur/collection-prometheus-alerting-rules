@@ -23,6 +23,7 @@
 # Network Monitoring
 
 - [Junos Exporter](junos-exporter/README.md)
+- [Omada Exporter](omada-exporter/README.md)
 
 # Backup Monitoring
 
