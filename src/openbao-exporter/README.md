@@ -1,4 +1,4 @@
-# OpenBao
+# OpenBao Exporter
 
 Alerting rules for OpenBao (compatible with Vault metrics).
 
