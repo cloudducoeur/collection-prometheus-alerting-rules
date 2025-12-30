@@ -2,7 +2,7 @@
 
 ![](./img/cdc-prom-logo.png)
 
-This repository hosts a comprehensive collection of Prometheus alerting rules, maintained with ❤️ by the **Cloud du Coeur** team.
+This repository hosts a comprehensive collection of Prometheus alerting rules, maintained with 🩷 by the **Cloud du Coeur** team.
 
 ## Documentation
 
