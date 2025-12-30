@@ -6,4 +6,4 @@ Welcome to the Prometheus Alerting Rules Collection.
 
 ## Join us
 
-Do you want to help us, join us, or learn more? Everything happens here: [https://doc.aucoeurdu.cloud/](https://doc.aucoeurdu.cloud/)
+Do you want to help us, join us, or learn more? Everything happens here: [https://doc.aucoeurdu.cloud/contribuer/](https://doc.aucoeurdu.cloud/contribuer/)
