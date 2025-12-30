@@ -5,6 +5,7 @@
 # Basic Resource Monitoring
 
 - [Node Exporter](node-exporter/README.md)
+- [Blackbox Exporter](blackbox-exporter/README.md)
 
 # Infrastructure Monitoring
 
