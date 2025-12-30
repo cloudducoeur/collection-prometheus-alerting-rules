@@ -1,1 +1,0 @@
-# OpenBao/Vault Exporter

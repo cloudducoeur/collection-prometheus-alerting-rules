@@ -13,11 +13,15 @@
 
 # Security Monitoring
 
-- [OpenBao/Vault Exporter](openba-exporter/README.md)
+- [OpenBao/Vault Exporter](openbao-exporter/README.md)
 
 # DNS Monitoring
 
 - [Unbound Exporter](unbound-exporter/README.md)
+
+# Backup Monitoring
+
+- [Oxidized Exporter](oxidized-exporter/README.md)
 
 # Help us
 
