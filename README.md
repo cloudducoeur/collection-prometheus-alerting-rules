@@ -4,6 +4,8 @@
 
 This repository hosts a comprehensive collection of Prometheus alerting rules, maintained with 🩷 by the **Cloud du Coeur** team.
 
+![](./img/cdc-screenshot.png)
+
 ## Documentation
 
 Access the full documentation and browse the rules here:
