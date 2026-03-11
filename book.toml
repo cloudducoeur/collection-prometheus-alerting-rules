@@ -7,4 +7,5 @@ title = "Prometheus Alerting Rules Collection"
 
 [output.html]
 additional-css = ["theme/custom.css"]
+additional-js = ["theme/custom.js"]
 git-repository-url = "https://github.com/cloudducoeur/collection-prometheus-alerting-rules"

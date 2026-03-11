@@ -1,58 +1,498 @@
-/* Custom CSS for mdBook */
+/* Custom CSS for mdBook — Modernized Theme */
 
+/* ── Google Font: Bricolage Grotesque (titres) ── */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+/* ── Variables globales ── */
 :root {
-    /* Main requested color */
+    /* Couleurs principales */
     --sidebar-bg: #83C8EF;
     --sidebar-fg: #333;
-    --sidebar-active: #E2147C; /* Active color in the sidebar */
+    --sidebar-active: #E2147C;
     --sidebar-hover: #ccecfc;
+
+    /* Typographie */
+    --heading-font: 'Bricolage Grotesque', system-ui, sans-serif;
+    --body-font: 'Open Sans', system-ui, -apple-system, sans-serif;
+
+    /* Espacement & rayons */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --transition-speed: 0.2s;
 }
 
-/* Override for Light theme (default) */
+/* ── Thèmes — couleurs conservées ── */
 .light {
     --sidebar-active: #E2147C;
-    --link-color: #83C8EF;
+    --link-color: #1a8fc4;
     --table-header-bg: #83C8EF;
 }
 
-/* Override for Rust theme */
 .rust {
     --sidebar-active: #83C8EF;
     --link-color: #83C8EF;
 }
 
-/* Override for Coal theme */
 .coal {
     --sidebar-active: #83C8EF;
     --link-color: #83C8EF;
 }
 
-/* Override for Navy theme */
 .navy {
     --sidebar-active: #83C8EF;
     --link-color: #83C8EF;
 }
 
-/* Override for Ayu theme */
 .ayu {
     --sidebar-active: #83C8EF;
     --link-color: #83C8EF;
 }
 
-/* Specific customization */
-.sidebar .chapter li.active > a {
-    color: var(--sidebar-active);
-    border-left-color: var(--sidebar-active);
+/* ── Typographie générale ── */
+html {
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
+/* ── Titres avec Bricolage Grotesque ── */
+.content h1, .content h2, .content h3,
+.content h4, .content h5, .content h6 {
+    font-family: var(--heading-font);
+    color: #E2147C;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.content h1 {
+    font-size: 2.8rem;
+    margin-block-end: 0.6em;
+    padding-block-end: 0.3em;
+    border-bottom: 3px solid #83C8EF;
+}
+
+.content h2 {
+    font-size: 2.2rem;
+    margin-block-start: 2.5em;
+    padding-block-end: 0.2em;
+    border-bottom: 2px solid rgba(131, 200, 239, 0.4);
+}
+
+.content h3 {
+    font-size: 1.8rem;
+}
+
+.content h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ── Sidebar modernisée ── */
+.sidebar {
+    transition: transform var(--transition-speed) ease;
+}
+
+.sidebar .chapter li.active > a {
+    color: var(--sidebar-active);
+    border-left: 3px solid var(--sidebar-active);
+    font-weight: 600;
+    padding-left: 10px;
+    background: rgba(226, 20, 124, 0.06);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.sidebar .chapter li a {
+    transition: all var(--transition-speed) ease;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 5px 10px 5px 13px;
+}
+
+.sidebar .chapter li a:hover {
+    background: var(--sidebar-hover);
+    padding-left: 16px;
+}
+
+/* ── Liens ── */
 a {
     color: var(--link-color);
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
     text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
 }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.content a {
+    text-decoration-color: rgba(131, 200, 239, 0.5);
+}
+
+.content a:hover {
+    text-decoration-color: var(--link-color);
+}
+
+/* ── Blocs de code ── */
+pre {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    background: #f5f5f5 !important;
+    color: #333 !important;
+}
+
+pre > code {
+    color: inherit !important;
+    background: transparent !important;
+}
+
+/* Désactiver la coloration syntaxique */
+pre .hljs,
+pre code span {
+    color: inherit !important;
+    background: transparent !important;
+}
+
+code:not(pre > code) {
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    background: #ebebeb;
+    color: #333;
+}
+
+/* ── Thèmes sombres — code en gris clair ── */
+.coal pre, .navy pre, .ayu pre {
+    background: #2a2a2a !important;
+    color: #d4d4d4 !important;
+}
+
+.coal pre code span, .navy pre code span, .ayu pre code span,
+.coal pre .hljs, .navy pre .hljs, .ayu pre .hljs {
+    color: inherit !important;
+}
+
+.coal code:not(pre > code), .navy code:not(pre > code), .ayu code:not(pre > code) {
+    background: #3a3a3a;
+    color: #d4d4d4;
+}
+
+/* ── Tableaux ── */
+table {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+table thead {
+    background: var(--table-header-bg);
+}
+
+table thead td, table thead th {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.01em;
+    padding: 10px 20px;
+}
+
+table td {
+    padding: 8px 20px;
+}
+
+/* ── Blockquotes ── */
+blockquote {
+    border-radius: var(--radius-md);
+    border-left: 4px solid #83C8EF;
+    border-top: none;
+    border-bottom: none;
+    padding: 12px 20px;
+    margin: 24px 0;
+    background-color: rgba(131, 200, 239, 0.08);
+}
+
+/* ── Warnings ── */
+.warning {
+    border-radius: var(--radius-md);
+    padding: 12px 20px;
+    background: rgba(255, 142, 0, 0.05);
+}
+
+/* ── Masquer le sélecteur de thème ── */
+#theme-toggle,
+.theme-popup {
+    display: none !important;
+}
+
+/* ── Masquer le bouton toggle sidebar — sidebar toujours visible ── */
+#sidebar-toggle {
+    display: none !important;
+}
+
+/* Forcer la sidebar visible en permanence */
+body.sidebar-hidden .sidebar {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+}
+
+body.sidebar-hidden .page-wrapper {
+    transform: none !important;
+    margin-inline-start: var(--sidebar-width) !important;
+}
+
+#sidebar-toggle-anchor {
+    checked: true;
+}
+
+/* ── Barre de recherche intégrée dans la navbar ── */
+#search-toggle {
+    display: none !important;
+}
+
+#search-wrapper {
+    display: none !important;
+}
+
+/* Searchbar form déplacé dans le menu-bar par JS */
+#menu-bar #searchbar-outer {
+    flex: 0 0 auto;
+    margin: 0 12px;
+    padding: 0;
+    max-width: none;
+}
+
+#menu-bar #searchbar {
+    border-radius: 20px !important;
+    padding: 4px 14px !important;
+    height: 30px;
+    font-size: 0.85em;
+    width: 200px;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: width var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+#menu-bar #searchbar:focus {
+    width: 300px;
+    box-shadow: 0 0 0 3px rgba(131, 200, 239, 0.3) !important;
+    border-color: #83C8EF !important;
+    outline: none;
+}
+
+/* Overlay des résultats de recherche */
+#search-results-overlay {
+    display: none;
+    position: fixed;
+    top: var(--menu-bar-height);
+    left: var(--sidebar-width);
+    right: 0;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--bg, #fff);
+    border-bottom: 2px solid #83C8EF;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    padding: 12px 24px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+#search-results-overlay.visible {
+    display: block;
+}
+
+#search-results-overlay .searchresults-header {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 8px 0;
+    color: var(--searchresults-header-fg, #666);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 8px;
+}
+
+#search-results-overlay ul#searchresults {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-results-overlay ul#searchresults li {
+    padding: 10px 12px;
+    margin: 4px 0;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-speed) ease;
+}
+
+#search-results-overlay ul#searchresults li:hover,
+#search-results-overlay ul#searchresults li.focus {
+    background: rgba(131, 200, 239, 0.1);
+}
+
+#search-results-overlay ul#searchresults a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--link-color, #1a8fc4);
+}
+
+#search-results-overlay ul#searchresults span.teaser {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: var(--fg, #555);
+    line-height: 1.5;
+}
+
+/* Thèmes sombres — overlay résultats */
+.coal #search-results-overlay,
+.navy #search-results-overlay,
+.ayu #search-results-overlay {
+    background: var(--bg);
+    border-bottom-color: #83C8EF;
+}
+
+.coal #menu-bar #searchbar,
+.navy #menu-bar #searchbar,
+.ayu #menu-bar #searchbar {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--fg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    #menu-bar #searchbar {
+        width: 120px;
+    }
+    #menu-bar #searchbar:focus {
+        width: 180px;
+    }
+    #search-results-overlay {
+        left: 0;
+    }
+}
+
+/* ── Menu bar — compacte ── */
+.menu-bar,
+#menu-bar {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex !important;
+    align-items: center;
+    padding: 0 8px;
+    gap: 0;
+}
+
+.menu-bar .left-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.menu-bar .right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.menu-bar .menu-title {
+    display: none !important;
+}
+
+.menu-bar .icon-button {
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-speed) ease;
+    padding: 4px 8px;
+    margin: 0;
+}
+
+.menu-bar .icon-button:hover {
+    background: rgba(131, 200, 239, 0.15);
+}
+
+/* ── Navigation (prev/next) ── */
+.nav-chapters {
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-chapters:hover {
     color: #E2147C;
+}
+
+/* ── Contenu — espacement & lisibilité ── */
+.content p {
+    line-height: 1.7;
+}
+
+.content ul, .content ol {
+    line-height: 1.7;
+}
+
+.content main {
+    max-width: 800px;
+}
+
+/* ── Sélection de texte ── */
+::selection {
+    background: rgba(131, 200, 239, 0.35);
+    color: inherit;
+}
+
+/* ── Sidebar — masquer la scrollbar ── */
+.sidebar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* ── Scrollbar personnalisée ── */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(131, 200, 239, 0.4);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(131, 200, 239, 0.6);
+}
+
+/* ── Animations d'entrée ── */
+.content main {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Print — nettoyer pour l'impression ── */
+@media print {
+    .content h1, .content h2, .content h3,
+    .content h4, .content h5, .content h6 {
+        color: #E2147C !important;
+        font-family: var(--heading-font);
+    }
+
+    pre {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
 }
